@@ -174,12 +174,21 @@ class MainWindow(QMainWindow):
     #открывает ячейки на поле, либо сбрасывает игру к начальному состоянию 
     def button_pressed(self):
         if self.status == Status.FAILED:
-            self.update_status(Status.FAILED)
-            self.reveal_map()
-
-        elif self.status == Status.FAILED:
             self.update_status(Status.READY)
             self.reset_map()
+
+        elif self.status == Status.PLAYING:
+            self.update_status(Status.READY)
+            self.reset_map()
+
+
+    # def button_pressed(self):
+    #     if self.status == Status.FAILED:
+    #         self.update_status(Status.READY)
+    #         self.reset_map()
+    #     elif self.status == Status.PLAYING:
+    #         # Implement any actions needed for the case when the game is still playing
+    #         pass
 
     #показывает  ячеейки на поле
     def reveal_map(self):

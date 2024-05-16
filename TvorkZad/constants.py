@@ -33,7 +33,7 @@ class Status(IntEnum):
 
 STATUS_ICONS = {
     Status.READY: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/plus.png",
-    Status.PLAYING: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/smiley.png",
-    Status.FAILED: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/cross.png",
-    Status.SUCCESS: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/smiley-lol.png",
+    Status.PLAYING: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/refresh.png",
+    Status.FAILED: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/refresh.png",
+    Status.SUCCESS: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/refresh.png",
 }
