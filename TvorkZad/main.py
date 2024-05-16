@@ -181,15 +181,6 @@ class MainWindow(QMainWindow):
             self.update_status(Status.READY)
             self.reset_map()
 
-
-    # def button_pressed(self):
-    #     if self.status == Status.FAILED:
-    #         self.update_status(Status.READY)
-    #         self.reset_map()
-    #     elif self.status == Status.PLAYING:
-    #         # Implement any actions needed for the case when the game is still playing
-    #         pass
-
     #показывает  ячеейки на поле
     def reveal_map(self):
         for x in range(0, self.b_size):
