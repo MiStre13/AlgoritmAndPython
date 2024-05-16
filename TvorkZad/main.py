@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.b_size, self.n_mines = LEVELS[1]
+        self.b_size, self.n_mines = LEVELS[2]
 
         w = QWidget()
         hb = QHBoxLayout()
@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         self.button = QPushButton()
         self.button.setFixedSize(QSize(32, 32))
         self.button.setIconSize(QSize(32, 32))
-        self.button.setIcon(QIcon("C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/smiley.png"))
+        self.button.setIcon(QIcon("/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/smiley.png"))
         self.button.setFlat(True)
 
         self.button.pressed.connect(self.button_pressed)
@@ -97,29 +97,29 @@ class MainWindow(QMainWindow):
         self.reset_map()
         self.update_status(Status.READY)
 
-        self.setWindowTitle("Moonsweeper")
+        self.setWindowTitle("Игра - Сапер")
 
         self.show()
 
     def init_map(self):
-        # Add positions to the map
+        # Добавляем позиции на карте.
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
                 w = PositionSquare(x, y)
                 self.grid.addWidget(w, y, x)
-                # Connect signal to handle expansion.
+                # Подключаем сигнал для обработки расширения.
                 w.clicked.connect(self.trigger_start)
                 w.expandable.connect(self.expand_reveal)
                 w.ohno.connect(self.game_over)
 
     def reset_map(self):
-        # Clear all mine positions
+        # Очистка мин
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
                 w = self.grid.itemAtPosition(y, x).widget()
                 w.reset()
 
-        # Add mines to the positions
+        # Добавить мины
         positions = []
         while len(positions) < self.n_mines:
             x, y = (
@@ -137,30 +137,31 @@ class MainWindow(QMainWindow):
 
             return n_mines
 
-        # Add adjacencies to the positions
+        # Смежность на позициях
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
                 w = self.grid.itemAtPosition(y, x).widget()
                 w.adjacent_n = get_adjacency_n(x, y)
 
-        # Place starting marker
+        # Установка стартового маркера
         while True:
             x, y = (
                 random.randint(0, self.b_size - 1),
                 random.randint(0, self.b_size - 1),
             )
             w = self.grid.itemAtPosition(y, x).widget()
-            # We don't want to start on a mine.
+            
             if (x, y) not in positions:
                 w = self.grid.itemAtPosition(y, x).widget()
                 w.is_start = True
 
-                # Reveal all positions around this, if they are not mines either.
+                # Раскрытие позиции вокруг если они не является минами
                 for w in self.get_surrounding(x, y):
                     if not w.is_mine:
                         w.click()
                 break
 
+    #определение мин
     def get_surrounding(self, x, y):
         positions = []
 
@@ -170,6 +171,7 @@ class MainWindow(QMainWindow):
 
         return positions
 
+    #открывает ячейки на поле, либо сбрасывает игру к начальному состоянию 
     def button_pressed(self):
         if self.status == Status.FAILED:
             self.update_status(Status.FAILED)
@@ -179,12 +181,14 @@ class MainWindow(QMainWindow):
             self.update_status(Status.READY)
             self.reset_map()
 
+    #показывает  ячеейки на поле
     def reveal_map(self):
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
                 w = self.grid.itemAtPosition(y, x).widget()
                 w.reveal()
 
+    #вызывает раскрытие ячеек вокруг ячейки с координатами
     def expand_reveal(self, x, y):
         for xi in range(max(0, x - 1), min(x + 2, self.b_size)):
             for yi in range(max(0, y - 1), min(y + 2, self.b_size)):
@@ -208,6 +212,7 @@ class MainWindow(QMainWindow):
             n_secs = int(time.time()) - self._timer_start_nsecs
             self.clock.setText("%03d" % n_secs)
 
+    #при завершение игры показывает все мины на поле.
     def game_over(self):
         self.reveal_map()
         self.update_status(Status.FAILED)

@@ -27,7 +27,7 @@ class PositionSquare(QWidget):
 
         self.x = x
         self.y = y
-
+    #Метод используется для сброса состояния ячейки до начального
     def reset(self):
         self.is_start = False
         self.is_mine = False
@@ -38,6 +38,7 @@ class PositionSquare(QWidget):
 
         self.update()
 
+    #Отрисовка внешнего вида ячейки в соответствие с ее состоянием
     def paintEvent(self, event):
         p = QPainter(self)
         p.setRenderHint(QPainter.RenderHint.Antialiasing)

@@ -5,10 +5,10 @@ from PyQt5.QtGui import (
     QImage,
 )
 
-IMG_BOMB = QImage("C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/bomb.png")
-IMG_FLAG = QImage("C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/flag.png")
-IMG_START = QImage("C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/rocket.png")
-IMG_CLOCK = QImage("C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/clock-select.png")
+IMG_BOMB = QImage("/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/bomb.png")
+IMG_FLAG = QImage("/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/flag.png")
+IMG_START = QImage("/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/rocket.png")
+IMG_CLOCK = QImage("/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/clock-select.png")
 
 NUM_COLORS = {
     1: QColor("#f44336"),
@@ -32,8 +32,8 @@ class Status(IntEnum):
 
 
 STATUS_ICONS = {
-    Status.READY: "C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/plus.png",
-    Status.PLAYING: "C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/smiley.png",
-    Status.FAILED: "C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/cross.png",
-    Status.SUCCESS: "C:/Users/Mikhail/Desktop/GitHUb/AlgoritmAndPython/TvorkZad/images/smiley-lol.png",
+    Status.READY: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/plus.png",
+    Status.PLAYING: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/smiley.png",
+    Status.FAILED: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/cross.png",
+    Status.SUCCESS: "/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/TvorkZad/images/smiley-lol.png",
 }

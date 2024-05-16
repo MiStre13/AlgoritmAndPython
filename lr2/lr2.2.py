@@ -1,35 +1,17 @@
-from random import randint
+import random
+spisok_primer = random.sample(range(-10, 10), 10)
+print(spisok_primer)
 
-count_digit = int(input("Введите длину списка: "))
-random_list = []
-for i in range(count_digit):
-    random_list.append(randint(-10,10))
-print("Исходный список:", random_list)
+def f(spisok):
 
-def swap(lst, i, j):
-    lst[i], lst[j] = lst[j], lst[i]
-
-def rearrange_list(lst):
-    right = 0 
-    left = 0 
-
-    while right < len(lst):
-        if lst[right] < 0:
-            swap(lst, left, right)
-            left+=1
-        right += 1
-
-    # for num in lst:
-    #     if num < 0:
-    #         negative_nums.append(num)
-    #     else:
-    #         positive_nums.append(num)
-            
-    # rearranged_list = negative_nums + positive_nums
-
-    # return rearranged_list
-
-
-rearranged = rearrange_list(random_list)
-print("Преобразованный список:", rearranged)
-
+  i = 0
+  j = len(spisok) - 1
+  while i <= j:
+    if spisok[i] >= 0:
+      spisok[i], spisok[j] = spisok[j], spisok[i]
+      j -= 1
+    else:
+      i += 1
+  return spisok
+spisok=f(spisok_primer)
+print(f(spisok))
