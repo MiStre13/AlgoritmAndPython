@@ -28,7 +28,7 @@ class Calclulator(QWidget):
         self.inputExampleResult.move(180,30)
 
         self.buttonResult = QPushButton("->", self)
-        self.buttonResult.resize(22, 22)
+        self.buttonResult.resize(32, 32)
         self.buttonResult.move(150, 29)
         self.buttonResult.clicked.connect(self.calculate)
 

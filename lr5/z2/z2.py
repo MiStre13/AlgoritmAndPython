@@ -28,22 +28,22 @@ class Menu(QWidget):
 
         self.labelImgMain = QLabel(self)
         self.labelImgMain.move(50,60)
-        self.mainImg = QPixmap(r"C:\Users\Mikhail\Desktop\GitHUb\AlgoritmAndPython\lr5\z2/blin.png")
+        self.mainImg = QPixmap(r"./blin.png")
         self.labelImgMain.setPixmap(self.mainImg)
 
         self.labelImgIkra = QLabel(self)
         self.labelImgIkra.move(220,500)
-        self.labelImgIkra.setPixmap(QPixmap(r"C:\Users\Mikhail\Desktop\GitHUb\AlgoritmAndPython\lr5\z2/ikra.png"))
+        self.labelImgIkra.setPixmap(QPixmap(r"/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/lr5/z2/ikra.png"))
         self.labelImgIkra.hide()
 
         self.labelImgMed = QLabel(self)
         self.labelImgMed.move(0,500)
-        self.labelImgMed.setPixmap(QPixmap(r"C:\Users\Mikhail\Desktop\GitHUb\AlgoritmAndPython\lr5\z2/med.png"))
+        self.labelImgMed.setPixmap(QPixmap(r"/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/lr5/z2/med.png"))
         self.labelImgMed.hide()
 
         self.labelImgSgush = QLabel(self)
         self.labelImgSgush.move(520,500)
-        self.labelImgSgush.setPixmap(QPixmap(r"C:\Users\Mikhail\Desktop\GitHUb\AlgoritmAndPython\lr5\z2/sgush.png"))
+        self.labelImgSgush.setPixmap(QPixmap(r"/Users/mikhailstreltsov/Desktop/desktopGit/AlgoritmAndPython/lr5/z2/sgush.png"))
         self.labelImgSgush.hide()
 
     def show_ikra(self, state):
